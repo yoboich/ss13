@@ -506,7 +506,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 	usr << browse(policytext.Join(""),"window=policy")
 
 /client/verb/fix_stat_panel()
-	set name = "Починить ЭТУ панель"
+	set name = "Fix stat panel"
 	set hidden = TRUE
 
 	init_verbs()

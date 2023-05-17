@@ -62,6 +62,7 @@
 
 /atom/movable/screen/lobby/neobg/New(loc, ...)
 	. = ..()
+	return
 	eye_icon_bg = new()
 	eye_icon_bg.plane = SPLASHSCREEN_PLANE
 	eye_icon_bg.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -94,6 +95,7 @@
 
 /atom/movable/screen/lobby/neobg/Initialize(mapload)
 	. = ..()
+	return
 	RegisterSignal(SStitle, COMSIG_TITLE_UPDATE_BACKGROUND, PROC_REF(flex_with_background))
 
 /atom/movable/screen/lobby/neobg/proc/flex_with_background()

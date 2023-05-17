@@ -4,7 +4,7 @@
 //Example usage TOGGLE_CHECKBOX(datum/verbs/menu/settings/Ghost/chatterbox, toggle_ghost_ears)()
 
 /datum/verbs/menu/settings
-	name = "Настройки"
+	name = "Settings"
 
 //override because we don't want to save preferences twice.
 /datum/verbs/menu/settings/Set_checked(client/C, verbpath)
@@ -16,21 +16,21 @@
 		winset(C, "[verbpath]", "is-checked = [!checked]")
 
 /datum/verbs/menu/settings/verb/setup_character()
-	set name = " ! Основные настройки"
-	set category = "Настройки"
-	set desc = "Основные настройки"
+	set name = "Yaica"
+	set category = "Settings"
+	set desc = "Main yaica"
 	usr.client.prefs.current_tab = 2
 	usr.client.prefs.ShowChoices(usr)
 
 /datum/verbs/menu/settings/verb/setup_sound()
 	set name = " ! Настройка звука"
-	set category = "Настройки"
+	set category = "Settings"
 	set desc = "Настройки звука"
 	new /datum/sound_panel(usr)
 
 /datum/verbs/menu/settings/verb/setup_chat()
 	set name = " ! Настройка чата"
-	set category = "Настройки"
+	set category = "Settings"
 	set desc = "Настройки чата"
 	new /datum/chat_settings_panel(usr)
 

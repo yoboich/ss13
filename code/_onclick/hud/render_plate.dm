@@ -77,6 +77,7 @@
 
 /atom/movable/screen/plane_master/rendering_plate/game_plate/Initialize(mapload)
 	. = ..()
+	return
 	add_filter("displacer", 1, displacement_map_filter(render_source = OFFSET_RENDER_TARGET(GRAVITY_PULSE_RENDER_TARGET, offset), size = 10))
 
 // Blackness renders weird when you view down openspace, because of transforms and borders and such
@@ -106,6 +107,7 @@
 
 /atom/movable/screen/plane_master/rendering_plate/game_world/show_to(mob/mymob)
 	. = ..()
+	return
 	if(!.)
 		return
 	remove_filter(list("AO", "black", "red", "green", "blue"))
@@ -143,11 +145,12 @@
  */
 /atom/movable/screen/plane_master/rendering_plate/lighting/Initialize(mapload)
 	. = ..()
-	add_filter("emissives", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(EMISSIVE_RENDER_TARGET, offset), flags = MASK_INVERSE))
-	add_filter("object_lighting", 2, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(O_LIGHTING_VISUAL_RENDER_TARGET, offset), flags = MASK_INVERSE))
+	//add_filter("emissives", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(EMISSIVE_RENDER_TARGET, offset), flags = MASK_INVERSE))
+	//add_filter("object_lighting", 2, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(O_LIGHTING_VISUAL_RENDER_TARGET, offset), flags = MASK_INVERSE))
 
 /atom/movable/screen/plane_master/rendering_plate/lighting/show_to(mob/mymob)
 	. = ..()
+	return
 	if(!.)
 		return
 	// This applies a backdrop to our lighting plane
@@ -209,10 +212,10 @@
 
 /atom/movable/screen/plane_master/rendering_plate/emissive_slate/Initialize(mapload, datum/plane_master_group/home, offset)
 	. = ..()
-	add_filter("emissive_mask", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(EMISSIVE_MASK_RENDER_TARGET, offset)))
-	add_filter("em_block_masking", 2, color_matrix_filter(GLOB.em_mask_matrix))
-	if(offset != 0)
-		add_relay_to(GET_NEW_PLANE(EMISSIVE_RENDER_PLATE, offset - 1), relay_layer = EMISSIVE_Z_BELOW_LAYER)
+	//add_filter("emissive_mask", 1, alpha_mask_filter(render_source = OFFSET_RENDER_TARGET(EMISSIVE_MASK_RENDER_TARGET, offset)))
+	//add_filter("em_block_masking", 2, color_matrix_filter(GLOB.em_mask_matrix))
+	//if(offset != 0)
+	//	add_relay_to(GET_NEW_PLANE(EMISSIVE_RENDER_PLATE, offset - 1), relay_layer = EMISSIVE_Z_BELOW_LAYER)
 
 /atom/movable/screen/plane_master/rendering_plate/mask_emissive
 	name = "Emissive Mask"
@@ -228,7 +231,7 @@
 /atom/movable/screen/plane_master/rendering_plate/mask_emissive/Initialize(mapload, datum/plane_master_group/home, offset)
 	. = ..()
 	// Uses a filter cause the alpha slider will fuck up colors and we want to be editable
-	add_filter("pump_alpha", 1, color_matrix_filter(list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,255, 0,0,0,0)))
+	//add_filter("pump_alpha", 1, color_matrix_filter(list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,255, 0,0,0,0)))
 
 ///render plate for OOC stuff like ghosts, hud-screen effects, etc
 /atom/movable/screen/plane_master/rendering_plate/non_game

@@ -399,7 +399,7 @@ function draw_status() {
 		}
 	}
 	if (verb_tabs.length == 0 || !verbs) {
-		Byond.command("Починить-ЭТУ-панель");
+		Byond.command("Fix-stat-panel");
 	}
 }
 

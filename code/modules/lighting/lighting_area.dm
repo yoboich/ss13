@@ -37,6 +37,7 @@
 	return ..()
 
 /area/proc/update_base_lighting()
+	return
 	if(!area_has_base_lighting && (!base_lighting_alpha || !base_lighting_color))
 		return
 

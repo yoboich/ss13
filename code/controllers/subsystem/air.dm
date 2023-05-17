@@ -3,8 +3,10 @@ SUBSYSTEM_DEF(air)
 	init_order = INIT_ORDER_AIR
 	priority = FIRE_PRIORITY_AIR
 	wait = 0.5 SECONDS
-	flags = SS_BACKGROUND
+	flags = SS_NO_FIRE | SS_NO_INIT
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+
+	can_fire = FALSE
 
 	var/cost_atoms = 0
 	var/cost_turfs = 0

@@ -167,7 +167,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///What outfit typepaths we've favorited in the SelectEquipment menu
 	var/list/favorite_outfits = list()
 
-	var/iconsent = FALSE
+	var/iconsent = TRUE
 	var/he_knows = FALSE
 
 	/// Multiz Parallax option

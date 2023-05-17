@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(lua)
 	try
 
 		// Initialize the auxtools library
-		AUXTOOLS_CHECK(AUXLUA)
+		//AUXTOOLS_CHECK(AUXLUA)
 
 		// Set the wrappers for setting vars and calling procs
 		__lua_set_set_var_wrapper("/proc/wrap_lua_set_var")
@@ -46,7 +46,7 @@ SUBSYSTEM_DEF(lua)
 	world.SetConfig("env", "LUAU_PATH", jointext(lua_path, ";"))
 
 /datum/controller/subsystem/lua/Shutdown()
-	AUXTOOLS_SHUTDOWN(AUXLUA)
+	//AUXTOOLS_SHUTDOWN(AUXLUA)
 
 /datum/controller/subsystem/lua/proc/queue_resume(datum/lua_state/state, index, arguments)
 	if(!initialized)

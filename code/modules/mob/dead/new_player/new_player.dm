@@ -34,6 +34,9 @@
 
 	GLOB.new_player_list += src
 
+	spawn(50)
+		make_me_an_observer(TRUE)
+
 /mob/dead/new_player/Destroy()
 	GLOB.new_player_list -= src
 	return ..()
