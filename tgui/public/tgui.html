@@ -488,7 +488,9 @@ window.update.flushQueue = function (listener) {
 };
 
 // Signal tgui that we're ready to receive updates
-Byond.sendMessage('ready');
+window.onload = () => {
+    Byond.sendMessage('ready');
+  };
 </script>
 
 <style>
@@ -621,7 +623,7 @@ Nanotrasen (c) 2525-2562
 </noscript>
 
 <script>
-  //Byond.sendMessage('ready');
+
 </script>
 
 </body>

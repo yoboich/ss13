@@ -120,6 +120,7 @@
 	name = "Витамин"
 	description = "All the best vitamins, minerals, and carbohydrates the body needs in pure form."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	nutriment_factor = 15 * REAGENTS_METABOLISM
 
 	brute_heal = 1
 	burn_heal = 1
