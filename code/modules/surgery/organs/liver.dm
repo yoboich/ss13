@@ -218,6 +218,7 @@
 	name = "базовая кибернетическая печень"
 	icon_state = "liver-c"
 	desc = "Очень простое устройство, имитирующее функции печени человека. Переносит токсины несколько хуже, чем органическая печень."
+	status = ORGAN_ROBOTIC
 	organ_flags = ORGAN_SYNTHETIC
 	toxTolerance = 2
 	toxLethality = 1.1 * LIVER_DEFAULT_TOX_LETHALITY
@@ -229,6 +230,7 @@
 	name = "кибернетическая печень"
 	icon_state = "liver-c-u"
 	desc = "Электронное устройство, имитирующее функции печени человека. Справляется с токсинами немного лучше, чем органическая печень."
+	status = ORGAN_ROBOTIC
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	toxTolerance = 5 //can shrug off up to 5u of toxins
 	toxLethality = 0.8 * LIVER_DEFAULT_TOX_LETHALITY //20% less damage than a normal liver
@@ -253,5 +255,7 @@
 		COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
 	if(prob(emp_vulnerability/severity)) //Chance of permanent effects
 		organ_flags |= ORGAN_SYNTHETIC_EMP //Starts organ faliure - gonna need replacing soon.
+	if(status == ORGAN_ROBOTIC)
+		damage += 10/severity + (10 * emp_vulnerability)/100
 
 

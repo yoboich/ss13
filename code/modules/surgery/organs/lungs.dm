@@ -511,3 +511,5 @@
 		COOLDOWN_START(src, severe_cooldown, 30 SECONDS)
 	if(prob(emp_vulnerability/severity))	//Chance of permanent effects
 		organ_flags |= ORGAN_SYNTHETIC_EMP //Starts organ faliure - gonna need replacing soon.
+	if(status == ORGAN_ROBOTIC)
+		damage += 10/severity + (10 * emp_vulnerability)/100

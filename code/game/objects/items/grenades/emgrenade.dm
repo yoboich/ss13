@@ -7,5 +7,5 @@
 /obj/item/grenade/empgrenade/detonate(mob/living/lanced_by)
 	. = ..()
 	update_mob()
-	empulse(src, 4, 10)
+	empulse(src, 0, 10)
 	qdel(src)

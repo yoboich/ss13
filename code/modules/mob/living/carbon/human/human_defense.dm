@@ -503,6 +503,7 @@
 				to_chat(src, span_notice("Моё сердце бьётся снова!"))
 	electrocution_animation(40)
 
+/*
 /mob/living/carbon/human/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_CONTENTS)
@@ -520,6 +521,7 @@
 				if(EXPLODE_HEAVY)
 					L.receive_damage(0,5)
 					Paralyze(100)
+*/
 
 /mob/living/carbon/human/acid_act(acidpwr, acid_volume, bodyzone_hit) //todo: update this to utilize check_obscured_slots() //and make sure it's check_obscured_slots(TRUE) to stop aciding through visors etc
 	var/list/damaged = list()

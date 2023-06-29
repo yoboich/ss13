@@ -231,6 +231,7 @@
 	name = "базовый кибернетический желудок"
 	icon_state = "stomach-c"
 	desc = "Базовое устройство, имитирующее функции человеческого желудка."
+	status = ORGAN_ROBOTIC
 	organ_flags = ORGAN_SYNTHETIC
 	maxHealth = STANDARD_ORGAN_THRESHOLD * 0.5
 	var/emp_vulnerability = 80	//Chance of permanent effects if emp-ed.
@@ -240,6 +241,7 @@
 	name = "кибернетический желудок"
 	icon_state = "stomach-c-u"
 	desc = "Электронное устройство, имитирующее функции человеческого желудка. Немного лучше справляется с отвратительной едой."
+	status = ORGAN_ROBOTIC
 	maxHealth = 1.5 * STANDARD_ORGAN_THRESHOLD
 	disgust_metabolism = 2
 	emp_vulnerability = 40
@@ -249,6 +251,7 @@
 	name = "продвинутый кибернетический желудок"
 	icon_state = "stomach-c-u2"
 	desc = "Усовершенствованная версия кибернетического желудка, предназначенная для дальнейшего улучшения органических желудков. Отлично справляется с отвратительной едой."
+	status = ORGAN_ROBOTIC
 	maxHealth = 2 * STANDARD_ORGAN_THRESHOLD
 	disgust_metabolism = 3
 	emp_vulnerability = 20
@@ -263,6 +266,8 @@
 		COOLDOWN_START(src, severe_cooldown, 10 SECONDS)
 	if(prob(emp_vulnerability/severity))	//Chance of permanent effects
 		organ_flags |= ORGAN_SYNTHETIC_EMP //Starts organ faliure - gonna need replacing soon.
+	if(status == ORGAN_ROBOTIC)
+		damage += 10/severity + (10 * emp_vulnerability)/100
 
 
 #undef STOMACH_METABOLISM_CONSTANT

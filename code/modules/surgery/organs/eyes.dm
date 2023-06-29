@@ -218,7 +218,9 @@
 	. = ..()
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
-	if(prob(10 * severity))
+	if(status == ORGAN_ROBOTIC)
+		damage += 10/severity
+	if(prob(20 * severity))
 		return
 	to_chat(owner, span_warning("Статика затуманивает моё зрение!"))
 	owner.flash_act(visual = 1)
@@ -226,6 +228,7 @@
 /obj/item/organ/eyes/robotic/xray
 	name = "рентгеновские глаза"
 	desc = "Эти кибернетические глаза дадут вам рентгеновское зрение. Моргать бесполезно."
+	status = ORGAN_ROBOTIC
 	eye_color_left = "000"
 	eye_color_right = "000"
 	see_in_dark = 8
@@ -234,6 +237,7 @@
 /obj/item/organ/eyes/robotic/thermals
 	name = "термальные глаза"
 	desc = "Эти кибернетические глазные имплантаты дадут вам тепловое зрение. Зрачок с вертикальной щелью включен."
+	status = ORGAN_ROBOTIC
 	eye_color_left = "FC0"
 	eye_color_right = "FC0"
 	sight_flags = SEE_MOBS
@@ -244,6 +248,7 @@
 /obj/item/organ/eyes/robotic/flashlight
 	name = "глаза фонарики"
 	desc = "Это два фонарика, соединенных проволокой. Зачем вы вбиваете это кому-то в голову?"
+	status = ORGAN_ROBOTIC
 	eye_color_left ="fee5a3"
 	eye_color_right ="fee5a3"
 	icon = 'icons/obj/lighting.dmi'
@@ -276,6 +281,7 @@
 /obj/item/organ/eyes/robotic/basic
 	name = "базовые кибернетические глаза"
 	desc = "Примитивный прототип протеза глаз способный видеть мир лишь в черно-белых оттенках, однако люди полностью лишенные зрения будут рады и такому."
+	status = ORGAN_ROBOTIC
 	eye_color_left ="000000"
 	eye_color_right ="000000"
 	flash_protect = FLASH_PROTECTION_SENSITIVE
@@ -292,6 +298,7 @@
 /obj/item/organ/eyes/robotic/shield
 	name = "кибернетические глаза"
 	desc = "Встроенные светофильтры защитят вас от сварки и вспышек, не ограничивая обзор."
+	status = ORGAN_ROBOTIC
 	flash_protect = FLASH_PROTECTION_WELDER
 
 /obj/item/organ/eyes/robotic/shield/emp_act(severity)
@@ -302,6 +309,7 @@
 /obj/item/organ/eyes/robotic/glow
 	name = "люминесцирующие глаза"
 	desc = "Особые светящиеся глаза, так же играют роль фонариков, однако не могут быть выключены. Цвет свечения можно изменять."
+	status = ORGAN_ROBOTIC
 	eye_color_left = "000"
 	eye_color_right = "000"
 	actions_types = list(/datum/action/item_action/organ_action/use, /datum/action/item_action/organ_action/toggle)
