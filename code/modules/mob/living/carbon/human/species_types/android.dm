@@ -32,8 +32,7 @@
 	mutanttongue = /obj/item/organ/tongue/robot
 	mutanteyes = /obj/item/organ/eyes/robotic
 	mutantears = /obj/item/organ/ears/cybernetic
-	mutantliver = /obj/item/organ/liver/cybernetic
-	mutantstomach = /obj/item/organ/stomach/cybernetic
+
 	species_language_holder = /datum/language_holder/synthetic
 	limbs_id = "synth"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT

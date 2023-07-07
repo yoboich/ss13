@@ -930,6 +930,24 @@
 	drop_organs()
 	qdel(src)
 
+/obj/item/bodypart/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_CONTENTS || !BODYPART_ROBOTIC)
+		return
+	owner.visible_message(span_userdanger("Ощущаю острую боль в области моей роботизированной конечности."))
+	owner.do_sparks(1)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			receive_damage(0, rand(10, 15))
+			owner.Paralyze(300)
+		if(EXPLODE_HEAVY)
+			receive_damage(0, rand(5, 9))
+			owner.Paralyze(200)
+		if(EXPLODE_LIGHT)
+			receive_damage(0, rand(1, 4))
+			owner.Paralyze(100)
+
+
 /// Get whatever wound of the given type is currently attached to this limb, if any
 /obj/item/bodypart/proc/get_wound_type(checking_type)
 	if(isnull(wounds))
@@ -1086,3 +1104,4 @@
 	var/obj/item/bodypart/new_part = new new_type()
 	new_part.attach_limb(our_owner, TRUE)
 	qdel(src)
+

@@ -391,21 +391,10 @@
 	. = ..()
 	if(. & EMP_PROTECT_CONTENTS)
 		return
-	for(var/obj/item/organ/O in src.internal_organs)
-		O.emp_act(severity)
-	var/informed = FALSE
-	for(var/obj/item/bodypart/L in src.bodyparts)
-		if(L.status == BODYPART_ROBOTIC)
-			if(!informed)
-				to_chat(src, span_userdanger("Ощущаю острую боль в области моей роботизированной конечности."))
-				informed = TRUE
-			switch(severity)
-				if(EXPLODE_DEVASTATE)
-					L.receive_damage(0,10)
-					Paralyze(200)
-				if(EXPLODE_HEAVY)
-					L.receive_damage(0,5)
-					Paralyze(100)
+	for(var/obj/item/organ as anything in src.internal_organs)
+		organ.emp_act(severity)
+	for(var/obj/item/bodypart as anything in src.bodyparts)
+		bodypart.emp_act(severity)
 
 ///Adds to the parent by also adding functionality to propagate shocks through pulling and doing some fluff effects.
 /mob/living/carbon/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)

@@ -27,7 +27,7 @@
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		recharge_speed += C.rating * 300
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
-		repairs += M.rating - 1
+		repairs += M.rating
 	for(var/obj/item/stock_parts/cell/C in component_parts)
 		recharge_speed *= C.maxcharge / 10000
 
@@ -110,3 +110,16 @@
 	if(!occupant)
 		return
 	SEND_SIGNAL(occupant, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, recharge_speed * delta_time / 2, repairs)
+
+	for(var/mob/living/carbon/human/H in occupant)
+		for(var/mob/living/carbon/human/H in occupant)
+		if(H.dna.species == /datum/species/android || /datum/species/ipc)
+			if(!COOLDOWN_FINISHED(H, repair_cooldown))
+				for(var/obj/item/bodypart/L in H.bodyparts)
+					if(L.status == BODYPART_ROBOTIC)
+						L.burn_dam = repairs
+						L.brute_dam = repairs
+						for(var/obj/item/organ/O as anything in H.internal_organs)
+							if(O.status == ORGAN_ROBOTIC)
+								O.damage += repairs
+					COOLDOWN_START(H, repair_cooldown, recharge_speed)
