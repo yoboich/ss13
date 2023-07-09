@@ -30,6 +30,7 @@
 	damage_overlay_type = "synth"
 	mutantbrain = /obj/item/organ/brain // should be normal human brain
 	mutanttongue = /obj/item/organ/tongue/robot
+	mutantstomach = /obj/item/organ/stomach/cybernetic
 	mutanteyes = /obj/item/organ/eyes/robotic
 	mutantears = /obj/item/organ/ears/cybernetic
 
