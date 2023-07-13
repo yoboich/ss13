@@ -121,3 +121,6 @@
 	var/shock_penalty = 0
 	/// Last time we got a major wound (crippling shock)
 	var/last_crippling_shock = 0
+
+	// Кулдаун для починки органов роботических рас в станции подзарядки киборгов
+	COOLDOWN_DECLARE(repair_cooldown) //НАСРАЛ

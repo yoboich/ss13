@@ -110,15 +110,14 @@
 	if(!occupant)
 		return
 	SEND_SIGNAL(occupant, COMSIG_PROCESS_BORGCHARGER_OCCUPANT, recharge_speed * delta_time / 2, repairs)
+	heal_robotic_human(repairs)
 
-	for(var/mob/living/carbon/human/H in occupant)
-		if(H.dna.species == /datum/species/android || /datum/species/ipc)
-			if(!COOLDOWN_FINISHED(H, repair_cooldown))
-				for(var/obj/item/bodypart/L in H.bodyparts)
-					if(L.status == BODYPART_ROBOTIC)
-						L.burn_dam = repairs
-						L.brute_dam = repairs
-						for(var/obj/item/organ/O as anything in H.internal_organs)
-							if(O.status == ORGAN_ROBOTIC)
-								O.damage += repairs
-						COOLDOWN_START(H, repair_cooldown, recharge_speed)
+/obj/machinery/recharge_station/proc/heal_robotic_human(amount)
+	if(iscarbon(occupant) && isandroid(occupant) || is_ipc(occupant))
+		var/mob/living/carbon/M = occupant
+		if(COOLDOWN_FINISHED(M, repair_cooldown))
+			M.heal_overall_damage(amount, amount, null, BODYPART_ROBOTIC, TRUE)
+			for(var/obj/item/organ/O as anything in M.internal_organs)
+				if(O.status == ORGAN_ROBOTIC)
+					O.damage += amount
+			COOLDOWN_START(M, repair_cooldown, recharge_speed)
