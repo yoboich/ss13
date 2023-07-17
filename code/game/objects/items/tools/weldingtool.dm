@@ -137,7 +137,7 @@
 					span_notice("Начинаю чинить вмятины [H == user ? "своей" : "[H]"] на [ru_exam_parse_zone(affecting.name)]."))
 				if(!do_mob(user, H, 50))
 					return
-			item_heal_robotic(H, user, 15, 0)
+			item_heal_robotic(H, user, 15, 15)
 	else
 		return ..()
 
