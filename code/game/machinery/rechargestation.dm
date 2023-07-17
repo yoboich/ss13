@@ -116,7 +116,7 @@
 	if(iscarbon(occupant) && isandroid(occupant) || is_ipc(occupant))
 		var/mob/living/carbon/M = occupant
 		if(COOLDOWN_FINISHED(M, repair_cooldown))
-			M.heal_overall_damage(amount, amount, null, BODYPART_ROBOTIC, TRUE)
+			M.heal_overall_damage(amount, amount, null, BODYPART_ROBOTIC, TRUE) // TODO: не работает отхил оккупантика. фиксануть
 			for(var/obj/item/organ/O as anything in M.internal_organs)
 				if(O.status == ORGAN_ROBOTIC)
 					O.damage += amount
