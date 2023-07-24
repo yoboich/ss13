@@ -53,7 +53,7 @@
 	flags_1 |= INITIALIZED_1
 
 	// We make the assumption that the space plane will never be blacklisted, as an optimization
-	if(SSmapping.max_plane_offset)
+	if(SSmapping.max_plane_offset && SSmapping.z_level_to_plane_offset[z])
 		plane = PLANE_SPACE - (PLANE_RANGE * SSmapping.z_level_to_plane_offset[z])
 
 	var/area/our_area = loc
