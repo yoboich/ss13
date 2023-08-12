@@ -47,7 +47,6 @@
 	if(!space_gas)
 		space_gas = new
 	air = space_gas
-	update_air_ref(0)
 	if(flags_1 & INITIALIZED_1)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1

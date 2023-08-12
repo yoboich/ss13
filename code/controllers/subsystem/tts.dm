@@ -116,7 +116,7 @@ SUBSYSTEM_DEF(tts)
 		return
 
 	if(!resumed)
-		while(length(in_process_http_messages) < max_concurrent_requests && length(queued_http_messages.L) > 0)
+		while(length(in_process_http_messages) < max_concurrent_requests && length(queued_http_messages?.L) > 0)
 			var/datum/tts_request/entry = queued_http_messages.pop()
 			var/timeout = entry.start_time + message_timeout
 			if(timeout < world.time)

@@ -384,6 +384,8 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 	set category = "Особенное"
 	set desc = "Fit the width of the map window to match the viewport"
 
+	return TRUE
+/*
 	var/shown_bars = NEOHUD_RIGHT
 
 	if(ishuman(mob))
@@ -470,7 +472,7 @@ GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sran
 			winset(src, "mainwindow.split", "splitter=[pct]")
 
 	set_hud_bar_visible(shown_bars)
-
+*/
 /// Attempt to automatically fit the viewport, assuming the user wants it
 /client/proc/attempt_auto_fit_viewport()
 	if (!prefs.auto_fit_viewport && prefs.retro_hud)

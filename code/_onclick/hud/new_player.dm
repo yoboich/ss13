@@ -49,7 +49,7 @@
 		generated_maptext += MAPTEXT_REALLYBIG_COLOR("В действии: <b>[LAZYLEN(GLOB.joined_player_list)] человек</b></br></br>", "#c2b23c")
 	generated_maptext += MAPTEXT_REALLYBIG_COLOR("Режим: <b>[SSticker.hide_mode ? "СЕКРЕТ" : "[capitalize(GLOB.master_mode)]"]</b>", "#ff4444")
 	maptext = generated_maptext
-
+/*
 /atom/movable/screen/lobby/neobg
 	screen_loc = "BOTTOM,LEFT"
 	icon = 'icons/effects/bg.dmi'
@@ -135,7 +135,7 @@
 
 	animate(eye_icon_bg, 1, FALSE, SINE_EASING, ANIMATION_PARALLEL, pixel_x = (icon_x * 0.03) - 9, pixel_y = (icon_y * 0.03) - 7)
 	animate(pupil_icon_bg, 1, FALSE, SINE_EASING, ANIMATION_PARALLEL, pixel_x = (icon_x * 0.06) - 18, pixel_y = (icon_y * 0.06) - 14)
-
+*/
 /atom/movable/screen/lobby/button
 	///Is the button currently enabled?
 	var/enabled = TRUE
@@ -146,7 +146,7 @@
 
 /atom/movable/screen/lobby/button/New(loc, ...)
 	. = ..()
-	add_filter("lobby", 1, drop_shadow_filter(0, 0, 12, 5, "#303030"))
+//	add_filter("lobby", 1, drop_shadow_filter(0, 0, 12, 5, "#303030"))
 
 /atom/movable/screen/lobby/button/Click(location, control, params)
 	if(owner != REF(usr))
